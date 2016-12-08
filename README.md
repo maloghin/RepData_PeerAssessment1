@@ -262,5 +262,3 @@ ggplot(data = MeanIntervalWday, aes(x=interval, y=meansteps)) +
 ```
 
 ![](./PA1_ReproducibleResearch_files/figure-html/unnamed-chunk-8-1.png) 
-
-

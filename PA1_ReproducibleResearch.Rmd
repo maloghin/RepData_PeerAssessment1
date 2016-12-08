@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
 author: "Maria Loghin"
-date: "November, 2016"
+date: "December, 2016"
 output: 
   html_document:
     keep_md: true
@@ -9,15 +9,15 @@ output:
 
 
 
-###About
+##About
 
-This is the first assignment for Coursera Reproducible Research course, part of Data Science specialization. 
+This is the first assignment for Coursera Reproducible Research course, part of Data Science specialization (by Johns Hopkins University). 
 
 
-###Synopsis
+##Synopsis
 
 The purpose of the project is to make use of the R Markdown language to publish the analyses answering a series of questions related to a collection of data about personal movement using an activity monitoring device.
-The following steps will be performed are to interpret data and answer research questions
+The following steps will be performed to interpret this data and to the answer research questions:
 
 - Loading the dataset and/or processing the data
 - What is the mean total number of steps taken per day?
@@ -25,25 +25,29 @@ The following steps will be performed are to interpret data and answer research 
 - Imputing missing values
 - Differences in activity patterns between weekdays and weekends
 
-###Data
+##Data
 The monitoring device collects data at 5 minute intervals throughout the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
 
-The data for this assignment can be downloaded from the GitHub repository forked from here [GitHub repository created for this assignment](http://github.com/rdpeng/RepData_PeerAssessment1)
+The data for this assignment can be downloaded from the GitHub repository forked from here [GitHub repository created for this assignment](http://github.com/rdpeng/RepData_PeerAssessment1).
 
 - Dataset: [Activity monitoring data](https://github.com/rdpeng/RepData_PeerAssessment1/blob/master/activity.zip)
 
 
-###Reproducible Research
+##Reproducible Research
 
-#### 1. Reading in the dataset and/or processing the data
+### 1. Reading in the dataset and/or processing the data
 
 
 The dataset is stored in a comma-separated-value (CSV) file.
 
-```{r readdata, echo = TRUE}
+
+```{r setwd, echo = TRUE}
 # Set the working directory 
 setwd("C:/Personal/MLB/Corsera/ReproducibleResearch/RepData_PeerAssessment1")
+```
 
+
+```{r readdata, echo = TRUE}
 # read file into data dataframe structure
 file<-"./activity.csv"
 temp<-"./activity.zip"
@@ -72,7 +76,7 @@ The variables included in this dataset are:
 
 
 
-#### 2. What is the mean total number of steps taken per day?
+### 2. What is the mean total number of steps taken per day?
 
 
 ```{r loadlib, echo = TRUE, message = FALSE, warning = FALSE}
@@ -81,6 +85,7 @@ The variables included in this dataset are:
 require(plyr)
 require(ggplot2)
 
+# Set the R options to print numeric values
 options(scipen=999, digits=2)
 
 ```
@@ -118,7 +123,7 @@ medianSteps <- median(DailyStepsSumm$steps)
 The `mean` is **`r meanSteps`** and the `median` is **`r medianSteps`**.
 
 
-#### 3. What is the average daily activity pattern?
+### 3. What is the average daily activity pattern?
 
 Calculate the average number of steps taken on the 5-minute interval, across all days
 
@@ -151,7 +156,7 @@ int_max_steps <- subset(MeanByInterval, MeanByInterval$meansteps == max(MeanByIn
 The 5-minute interval containing the maximum number of steps is **`r int_max_steps`**.
 
 
-#### 4. Imputing missing values
+### 4. Imputing missing values
 
 The presence of missing values may introduce bias into some calculations or summaries of the data. 
 In the dataset exploration forward step we noted there are missing values for "steps" variable for a number of days/intervals.
@@ -221,7 +226,7 @@ The difference for the total daily number of steps between the dataset imputed a
 - **`r diffTotalSteps`**
 
 
-#### 5. Differences in activity patterns between weekdays and weekends
+### 5. Differences in activity patterns between weekdays and weekends
 
 
 **Create a new variable indicating whether a given date is a weekday or weekend day**
@@ -248,6 +253,12 @@ ggplot(data = MeanIntervalWday, aes(x=interval, y=meansteps)) +
   xlab("Inerval") + 
   ylab("Mean steps") + 
   ggtitle("Activity patterns between weekdays and weekends") +
-  facet_grid(weekday ~ .)
+  facet_grid(weekday ~ .) +
+  theme(legend.position="none")
 
+```
+
+```{r, include=FALSE}
+   # add this chunk to end of mycode.rmd
+   file.copy(from="PA1_ReproducibleResearch.md", to="README.md")
 ```
