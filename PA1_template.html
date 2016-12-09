@@ -154,7 +154,7 @@ medianSteps &lt;- median(DailyStepsSumm$steps)</code></pre>
 <p>The presence of missing values may introduce bias into some calculations or summaries of the data. In the dataset exploration forward step we noted there are missing values for “steps” variable for a number of days/intervals.</p>
 <pre class="r"><code>countNA &lt;- sum(!complete.cases(data))</code></pre>
 <p>The total number of missing values in the dataset (the total number of rows with NAs) is <strong>2304</strong>.</p>
-<p>The missing values needs to be filled in. We will impute the missing values for the “steps” variable using the calculation of the number of steps by 5-minute interval averaged across all days.</p>
+<p>The missing values need to be filled in. We will impute the missing values for the “steps” variable using the calculation of the number of steps by 5-minute interval averaged across all days.</p>
 <pre class="r"><code>MeanByInterval &lt;- ddply(subset(data, (!is.na(data$steps))), .(interval), summarise, meansteps = mean(steps, na.rm = TRUE))
 
 data$steps[is.na(data$steps)] &lt;- subset(MeanByInterval, MeanByInterval$interval == data$interval[is.na(data$steps)])$meansteps</code></pre>

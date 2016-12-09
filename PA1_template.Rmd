@@ -167,7 +167,7 @@ countNA <- sum(!complete.cases(data))
 
 The total number of missing values in the dataset (the total number of rows with NAs) is **`r countNA`**.
 
-The missing values needs to be filled in. We will impute the missing values for the "steps" variable using the calculation of the number of steps by 5-minute interval averaged across all days.  
+The missing values need to be filled in. We will impute the missing values for the "steps" variable using the calculation of the number of steps by 5-minute interval averaged across all days.  
 
 ```{r fillmissval}
 
@@ -257,6 +257,13 @@ ggplot(data = MeanIntervalWday, aes(x=interval, y=meansteps)) +
 ```
 
 ```{r, include=FALSE}
-   # add this chunk to end of mycode.rmd
-   file.copy(from="PA1_template.md", to="README.md")
+
+readm <- "README.md"
+
+if (file.exists(readm)) {
+  file.remove(readm)
+}
+
+file.copy(from="PA1_template.md", to="README.md")
+
 ```

@@ -169,7 +169,7 @@ countNA <- sum(!complete.cases(data))
 
 The total number of missing values in the dataset (the total number of rows with NAs) is **2304**.
 
-The missing values needs to be filled in. We will impute the missing values for the "steps" variable using the calculation of the number of steps by 5-minute interval averaged across all days.  
+The missing values need to be filled in. We will impute the missing values for the "steps" variable using the calculation of the number of steps by 5-minute interval averaged across all days.  
 
 
 ```r
