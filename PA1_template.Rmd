@@ -38,14 +38,12 @@ The data for this assignment can be downloaded from the GitHub repository forked
 ### 1. Reading in the dataset and/or processing the data
 
 
-The dataset is stored in a comma-separated-value (CSV) file.
-
-
-```{r setwd, echo = TRUE}
+```{r setwd, echo = FALSE}
 # Set the working directory 
 setwd("C:/Personal/MLB/Corsera/ReproducibleResearch/RepData_PeerAssessment1")
 ```
 
+The dataset is stored in a comma-separated-value (CSV) file. Read the file into data dataframe structure.
 
 ```{r readdata, echo = TRUE}
 # read file into data dataframe structure
@@ -260,5 +258,5 @@ ggplot(data = MeanIntervalWday, aes(x=interval, y=meansteps)) +
 
 ```{r, include=FALSE}
    # add this chunk to end of mycode.rmd
-   file.copy(from="PA1_ReproducibleResearch.md", to="README.md")
+   file.copy(from="PA1_template.md", to="README.md")
 ```

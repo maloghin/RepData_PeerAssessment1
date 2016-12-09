@@ -33,15 +33,9 @@ The data for this assignment can be downloaded from the GitHub repository forked
 ### 1. Reading in the dataset and/or processing the data
 
 
-The dataset is stored in a comma-separated-value (CSV) file.
 
 
-
-```r
-# Set the working directory 
-setwd("C:/Personal/MLB/Corsera/ReproducibleResearch/RepData_PeerAssessment1")
-```
-
+The dataset is stored in a comma-separated-value (CSV) file. Read the file into data dataframe structure.
 
 
 ```r
@@ -115,7 +109,7 @@ ggplot(data=DailyStepsSumm, aes(steps)) +
   ggtitle("Daily steps distribution")
 ```
 
-![](./PA1_ReproducibleResearch_files/figure-html/unnamed-chunk-2-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
 
 Calculate mean and median of steps taken per day
 
@@ -151,7 +145,7 @@ ggplot(data = MeanByInterval, aes(x=interval, y=meansteps)) +
   ggtitle("Average Number of steps by Interval")
 ```
 
-![](./PA1_ReproducibleResearch_files/figure-html/dailypattplot-1.png) 
+![](./PA1_template_files/figure-html/dailypattplot-1.png) 
 
 Get the 5-minute interval, on average across all the days, which contains the maximum number of steps
 
@@ -197,7 +191,7 @@ ggplot(data=DailyStepsSummNA, aes(steps)) +
   ggtitle("Daily steps distribution (missing values fiiled in)")
 ```
 
-![](./PA1_ReproducibleResearch_files/figure-html/unnamed-chunk-4-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 Recalculate the mean and the median of total number of steps taken per day
 
@@ -261,6 +255,6 @@ ggplot(data = MeanIntervalWday, aes(x=interval, y=meansteps)) +
   theme(legend.position="none")
 ```
 
-![](./PA1_ReproducibleResearch_files/figure-html/unnamed-chunk-8-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
 
 
